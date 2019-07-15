@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="69224c98-2dd8-4c7a-8870-f564427f370e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="PER_CEDULA" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     DIRECCION."DIR_CODIGO" AS DIRECCION_DIR_CODIGO,
+     DIRECCION."DIR_CALLE_PRINCIPAL" AS DIRECCION_DIR_CALLE_PRINCIPAL,
+     DIRECCION."DIR_CALLE_SECUNDARIA" AS DIRECCION_DIR_CALLE_SECUNDARIA,
+     DIRECCION."DIR_NUMERO" AS DIRECCION_DIR_NUMERO,
+     DIRECCION."PER_CEDULA" AS DIRECCION_PER_CEDULA
+FROM
+     "public"."DIRECCION" DIRECCION
+WHERE  DIRECCION."PER_CEDULA"=$P{PER_CEDULA}]]>
+	</queryString>
+	<field name="direccion_dir_codigo" class="java.math.BigDecimal"/>
+	<field name="direccion_dir_calle_principal" class="java.lang.String"/>
+	<field name="direccion_dir_calle_secundaria" class="java.lang.String"/>
+	<field name="direccion_dir_numero" class="java.math.BigDecimal"/>
+	<field name="direccion_per_cedula" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="5" width="263" height="33" uuid="0c7278ae-e0b9-45e0-8207-a34fd67ce4cf"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Wood Title]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="63" y="39" width="200" height="22" forecolor="#FFFFFF" uuid="8e06f669-694f-476d-93d9-a6c7d31e6870"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Wood SubTitle]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="15102336-ae3c-4fa7-9e45-07011f27cb09"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="111" height="15" uuid="cc1e1569-c0ea-4fe0-9a4e-b0a2179c57b8"/>
+				<text><![CDATA[direccion_dir_codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="111" y="19" width="111" height="15" uuid="a67910b4-c4bf-43c7-a371-598a31abf800"/>
+				<text><![CDATA[direccion_dir_calle_principal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="222" y="19" width="111" height="15" uuid="2e70d8d5-7a06-4bff-8cdc-5b9619259e01"/>
+				<text><![CDATA[direccion_dir_calle_secundaria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="333" y="19" width="111" height="15" uuid="f0544c60-5b75-4aa1-9553-58e9ee2999e5"/>
+				<text><![CDATA[direccion_dir_numero]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="444" y="19" width="111" height="15" uuid="01da4c3f-726d-4021-af17-c3e586c638c4"/>
+				<text><![CDATA[direccion_per_cedula]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="8862621a-c74d-400e-a9e4-4061c0c895b6"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="111" height="15" uuid="0c901bb3-a93c-4fbb-826b-a0f019b276dc"/>
+				<textFieldExpression><![CDATA[$F{direccion_dir_codigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="111" y="0" width="111" height="15" uuid="e55c0f0d-f4a6-45dd-87b3-e71866b07482"/>
+				<textFieldExpression><![CDATA[$F{direccion_dir_calle_principal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="222" y="0" width="111" height="15" uuid="e5938490-f6d0-4893-a6e2-bb4e02d87f2a"/>
+				<textFieldExpression><![CDATA[$F{direccion_dir_calle_secundaria}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="333" y="0" width="111" height="15" uuid="a7cc4b43-c1ac-4f73-8edd-a87e63a70ba5"/>
+				<textFieldExpression><![CDATA[$F{direccion_dir_numero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="444" y="0" width="111" height="15" uuid="2e69c062-6340-4078-93fe-20bffb61d5eb"/>
+				<textFieldExpression><![CDATA[$F{direccion_per_cedula}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="3f8af2b3-898e-4ce0-91f4-b6c0a2df8ec1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="dc8fcdf0-d3ae-4bef-a3b4-7e5a33c9046d"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="062d6caf-0fca-41aa-9113-3cc1bd3c954c"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="d5f836b0-7a74-4653-91df-2b0e1be8115d"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
